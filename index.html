@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Math Solver</title>
+    <title>Professional Math Solver with Sign-In/Sign-Up</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,21 +29,25 @@
 
     <!-- Sign-Up/Sign-In Section -->
     <section id="sign-section">
-        <h2>Sign In</h2>
-        <form id="signin-form">
-            <input type="email" id="signin-email" placeholder="Enter your email" required>
-            <input type="password" id="signin-password" placeholder="Enter your password" required>
-            <button type="button" id="signin-button">Sign In</button>
-        </form>
+        <div class="container">
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <input type="email" id="signin-email" placeholder="Enter your email" required>
+                <input type="password" id="signin-password" placeholder="Enter your password" required>
+                <button type="button" id="signin-button">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signup-link">Sign Up Here</a></p>
 
-        <p>Don't have an account? <a href="#" id="signup-link">Sign Up Here</a></p>
-
-        <h2 id="signup-section" style="display:none;">Sign Up</h2>
-        <form id="signup-form" style="display:none;">
-            <input type="email" id="signup-email" placeholder="Enter your email" required>
-            <input type="password" id="signup-password" placeholder="Enter your password" required>
-            <button type="button" id="signup-button">Sign Up</button>
-        </form>
+            <div id="signup-section" style="display:none;">
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    <input type="password" id="signup-password" placeholder="Enter your password" required>
+                    <button type="button" id="signup-button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <p id="message"></p>
     </section>
 
     <!-- Features Section -->
@@ -70,6 +74,22 @@
             document.getElementById('student-link').style.display = 'inline';
             document.getElementById('teacher-link').style.display = 'inline';
         }
+
+        // Scroll-to-Sign Section
+        function scrollToSign() {
+            document.getElementById('sign-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle between Sign-In and Sign-Up forms
+        const signupLink = document.getElementById("signup-link");
+        const signinForm = document.getElementById("signin-form");
+        const signupForm = document.getElementById("signup-form");
+        const signupSection = document.getElementById("signup-section");
+
+        signupLink.addEventListener("click", () => {
+            signinForm.style.display = "none";
+            signupSection.style.display = "block";
+        });
     </script>
     <script type="module">
         // Import Firebase SDKs
@@ -88,19 +108,6 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-    </script>
-    <script>
-        // Toggle between Sign-In and Sign-Up forms
-        const signupLink = document.getElementById("signup-link");
-        const signinForm = document.getElementById("signin-form");
-        const signupForm = document.getElementById("signup-form");
-        const signupSection = document.getElementById("signup-section");
-
-        signupLink.addEventListener("click", () => {
-            signinForm.style.display = "none";
-            signupSection.style.display = "block";
-            signupForm.style.display = "block";
-        });
 
         // Sign-Up Function
         document.getElementById("signup-button").addEventListener("click", () => {
@@ -131,11 +138,6 @@
                     alert("Error: " + error.message);
                 });
         });
-
-        // Scroll-to-Sign Section
-        function scrollToSign() {
-            document.getElementById('sign-section').scrollIntoView({ behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
