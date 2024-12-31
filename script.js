@@ -354,3 +354,68 @@ function addAnnotation(userType) {
     const graph = userType === "student" ? studentGraph : teacherGraph;
     graph.setExpression({ id: `annotation${Date.now()}`, latex: `\\text{${annotation}}` });
 }
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Toggle Between Sign-In and Sign-Up
+const signinContainer = document.getElementById("signin-container");
+const signupContainer = document.getElementById("signup-container");
+const signupLink = document.getElementById("signup-link");
+const signinLink = document.getElementById("signin-link");
+
+signupLink.addEventListener("click", () => {
+    signinContainer.style.display = "none";
+    signupContainer.style.display = "block";
+});
+
+signinLink.addEventListener("click", () => {
+    signinContainer.style.display = "block";
+    signupContainer.style.display = "none";
+});
+
+// Sign-Up Functionality
+document.getElementById("signup-button").addEventListener("click", () => {
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(() => alert("Account created successfully!"))
+        .catch((error) => alert(error.message));
+});
+
+// Sign-In Functionality
+document.getElementById("signin-button").addEventListener("click", () => {
+    const email = document.getElementById("signin-email").value;
+    const password = document.getElementById("signin-password").value;
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+            alert("Login successful!");
+            window.location.href = "student.html"; // Redirect
+        })
+        .catch((error) => alert(error.message));
+});
+
+// Google Sign-In
+const googleButton = document.getElementById("google-signin-button");
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+googleButton.addEventListener("click", () => {
+    auth.signInWithPopup(googleProvider)
+        .then(() => {
+            alert("Google Sign-in successful!");
+            window.location.href = "student.html"; // Redirect
+        })
+        .catch((error) => alert(error.message));
+});
