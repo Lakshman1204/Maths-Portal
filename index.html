@@ -10,12 +10,11 @@
     <!-- Header Section -->
     <header>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="student.html">Student</a>
-            <a href="teacher.html">Teacher</a>
-            <a href="help.html">Help</a>
-            <a href="about.html">About</a>
-        </nav>
+        <a href="index.html">Home</a>
+        <a href="#" id="student-link" style="display: none;">Student</a>
+        <a href="#" id="teacher-link" style="display: none;">Teacher</a>
+        <a href="help.html">Help</a>
+        <a href="about.html">About</a>
     </header>
 
     <!-- Hero Section -->
@@ -47,6 +46,7 @@
             <li>View and save recent queries and solutions.</li>
         </ul>
     </section>
+    
 
     <!-- Footer Section -->
     <footer>
@@ -58,5 +58,15 @@
             document.getElementById('sign-section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+    
+<script>
+    // Simulate user login status
+    const isLoggedIn = false; // Change this to true to show restricted links
+
+    if (isLoggedIn) {
+        document.getElementById('student-link').style.display = 'inline';
+        document.getElementById('teacher-link').style.display = 'inline';
+    }
+</script>
 </body>
 </html>
