@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to the Math Learning Platform</h1>
+
+    <div id="auth-section">
+        <button onclick="showLogin()">Login</button>
+        <button onclick="showSignUp()">Sign Up</button>
+    </div>
+
+    <div id="login-form" class="hidden">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Submit</button>
+        <button onclick="hideForms()">Cancel</button>
+    </div>
+
+    <div id="signup-form" class="hidden">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Username">
+        <input type="password" id="signup-password" placeholder="Password">
+        <button onclick="signUp()">Submit</button>
+        <button onclick="hideForms()">Cancel</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
