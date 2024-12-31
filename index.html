@@ -10,11 +10,12 @@
     <!-- Header Section -->
     <header>
         <nav>
-        <a href="index.html">Home</a>
-        <a href="#" id="student-link" style="display: none;">Student</a>
-        <a href="#" id="teacher-link" style="display: none;">Teacher</a>
-        <a href="help.html">Help</a>
-        <a href="about.html">About</a>
+            <a href="index.html">Home</a>
+            <a href="#" id="student-link" style="display: none;">Student</a>
+            <a href="#" id="teacher-link" style="display: none;">Teacher</a>
+            <a href="help.html">Help</a>
+            <a href="about.html">About</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -27,21 +28,23 @@
     </section>
 
     <!-- Sign-Up/Sign-In Section -->
-   <h2>Sign In</h2>
-<form id="signin-form">
-    <input type="email" id="signin-email" placeholder="Enter your email" required>
-    <input type="password" id="signin-password" placeholder="Enter your password" required>
-    <button type="button" id="signin-button">Sign In</button>
-</form>
+    <section id="sign-section">
+        <h2>Sign In</h2>
+        <form id="signin-form">
+            <input type="email" id="signin-email" placeholder="Enter your email" required>
+            <input type="password" id="signin-password" placeholder="Enter your password" required>
+            <button type="button" id="signin-button">Sign In</button>
+        </form>
 
-<p>Don't have an account? <a href="#" id="signup-link">Sign Up Here</a></p>
+        <p>Don't have an account? <a href="#" id="signup-link">Sign Up Here</a></p>
 
-<h2 id="signup-section" style="display:none;">Sign Up</h2>
-<form id="signup-form" style="display:none;">
-    <input type="email" id="signup-email" placeholder="Enter your email" required>
-    <input type="password" id="signup-password" placeholder="Enter your password" required>
-    <button type="button" id="signup-button">Sign Up</button>
-</form>
+        <h2 id="signup-section" style="display:none;">Sign Up</h2>
+        <form id="signup-form" style="display:none;">
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+            <input type="password" id="signup-password" placeholder="Enter your password" required>
+            <button type="button" id="signup-button">Sign Up</button>
+        </form>
+    </section>
 
     <!-- Features Section -->
     <section class="container">
@@ -52,110 +55,87 @@
             <li>View and save recent queries and solutions.</li>
         </ul>
     </section>
-    
-<script>
-    // Simulate user login status
-    const isLoggedIn = false; // Change this to true to show restricted links
 
-    if (isLoggedIn) {
-        document.getElementById('student-link').style.display = 'inline';
-        document.getElementById('teacher-link').style.display = 'inline';
-    }
-</script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAo8JQGpnXp2o4LPGqO_mkNHJTm-ABs59E",
-    authDomain: "professional-math-solver.firebaseapp.com",
-    projectId: "professional-math-solver",
-    storageBucket: "professional-math-solver.firebasestorage.app",
-    messagingSenderId: "581138256194",
-    appId: "1:581138256194:web:af456ffe60ae0784ad38db"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
-    <script>
-    // Toggle between Sign-In and Sign-Up forms
-    const signupLink = document.getElementById("signup-link");
-    const signinForm = document.getElementById("signin-form");
-    const signupForm = document.getElementById("signup-form");
-    const signupSection = document.getElementById("signup-section");
-
-    signupLink.addEventListener("click", () => {
-        signinForm.style.display = "none";
-        signupSection.style.display = "block";
-        signupForm.style.display = "block";
-    });
-
-    // Sign Up Function
-    document.getElementById("signup-button").addEventListener("click", () => {
-        const email = document.getElementById("signup-email").value;
-        const password = document.getElementById("signup-password").value;
-
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                alert("Sign-up successful!");
-                window.location.reload(); // Refresh the page
-            })
-            .catch((error) => {
-                alert("Error: " + error.message);
-            });
-    });
-
-    // Sign In Function
-    document.getElementById("signin-button").addEventListener("click", () => {
-        const email = document.getElementById("signin-email").value;
-        const password = document.getElementById("signin-password").value;
-
-        auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                alert("Sign-in successful!");
-                window.location.href = "student.html"; // Redirect to student page
-            })
-            .catch((error) => {
-                alert("Error: " + error.message);
-            });
-    });
-</script>
-    <button id="google-signin-button">Sign in with Google</button>
-<script>
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-
-    document.getElementById("google-signin-button").addEventListener("click", () => {
-        auth.signInWithPopup(googleProvider)
-            .then((result) => {
-                alert("Google Sign-in successful!");
-                window.location.href = "student.html"; // Redirect to student page
-            })
-            .catch((error) => {
-                alert("Error: " + error.message);
-            });
-    });
-</script>
-<!-- Firebase App (Core SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-<!-- Firebase Authentication -->
-<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"></script>
-   <!-- Footer Section -->
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Professional Math Solver (Locana Naidu). All Rights Reserved.</p>
     </footer>
 
+    <!-- Scripts -->
     <script>
+        // Simulate user login status
+        const isLoggedIn = false;
+
+        if (isLoggedIn) {
+            document.getElementById('student-link').style.display = 'inline';
+            document.getElementById('teacher-link').style.display = 'inline';
+        }
+    </script>
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAo8JQGpnXp2o4LPGqO_mkNHJTm-ABs59E",
+            authDomain: "professional-math-solver.firebaseapp.com",
+            projectId: "professional-math-solver",
+            storageBucket: "professional-math-solver.appspot.com",
+            messagingSenderId: "581138256194",
+            appId: "1:581138256194:web:af456ffe60ae0784ad38db"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    </script>
+    <script>
+        // Toggle between Sign-In and Sign-Up forms
+        const signupLink = document.getElementById("signup-link");
+        const signinForm = document.getElementById("signin-form");
+        const signupForm = document.getElementById("signup-form");
+        const signupSection = document.getElementById("signup-section");
+
+        signupLink.addEventListener("click", () => {
+            signinForm.style.display = "none";
+            signupSection.style.display = "block";
+            signupForm.style.display = "block";
+        });
+
+        // Sign-Up Function
+        document.getElementById("signup-button").addEventListener("click", () => {
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    alert("Sign-up successful!");
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    alert("Error: " + error.message);
+                });
+        });
+
+        // Sign-In Function
+        document.getElementById("signin-button").addEventListener("click", () => {
+            const email = document.getElementById("signin-email").value;
+            const password = document.getElementById("signin-password").value;
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then(() => {
+                    alert("Sign-in successful!");
+                    window.location.href = "student.html";
+                })
+                .catch((error) => {
+                    alert("Error: " + error.message);
+                });
+        });
+
+        // Scroll-to-Sign Section
         function scrollToSign() {
             document.getElementById('sign-section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-      <!-- Firebase Script -->
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
