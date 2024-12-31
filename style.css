@@ -2,7 +2,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #3498db, #8e44ad);
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -18,7 +19,7 @@ h1, h2, h3 {
 /* Header */
 header {
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     padding: 10px 0;
     position: fixed;
     top: 0;
@@ -45,47 +46,62 @@ header nav a:hover {
     border-radius: 5px;
 }
 
-/* Container */
-.container {
-    margin-top: 100px;
-    width: 90%;
-    max-width: 1200px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
 }
 
-/* Buttons */
-button {
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content button {
     background: #3498db;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover {
+.hero-content button:hover {
     background: #2980b9;
 }
 
-/* Input Fields */
-input[type="text"], input[type="password"], textarea {
-    width: calc(100% - 40px);
+/* Sign-Up/Sign-In Section */
+.container {
+    margin-top: 50px;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px);
     padding: 10px;
-    margin: 10px 0;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-textarea {
-    resize: none;
-    height: 100px;
 }
 
 /* Footer */
@@ -97,15 +113,4 @@ footer {
     width: 100%;
     color: #fff;
     font-size: 0.9rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1, h2, h3 {
-        font-size: 1.5rem;
-    }
-
-    button {
-        width: 100%;
-    }
 }
