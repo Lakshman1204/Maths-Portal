@@ -5,60 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.desmos.com/api/v1.6/calculator.js"></script>
+    <script src="https://www.desmos.com/api/v1.9/calculator.js"></script>
 </head>
 <body>
     <h1>Welcome, Student!</h1>
     <p>This is your dashboard. Explore math-solving tools and resources here.</p>
 
+    <!-- Math Solver Section -->
     <div id="math-tool">
         <h2>Math Solver</h2>
-        <input type="text" id="math-problem" placeholder="Enter a math problem (e.g., 2+2)">
+        <input type="text" id="math-problem" placeholder="Enter a math problem (e.g., 2+2)" />
         <button onclick="solveMath()">Solve</button>
         <p id="math-solution"></p>
     </div>
 
+    <!-- Graph Generator Section -->
     <div id="graph-tool">
         <h2>Graph Generator</h2>
-        <input type="text" id="graph-equation" placeholder="Enter an equation (e.g., y=x^2)">
+        <input type="text" id="graph-equation" placeholder="Enter an equation (e.g., y=x^2)" />
         <button onclick="plotGraph()">Plot Graph</button>
         <div id="graph-container" style="width: 100%; height: 400px;"></div>
     </div>
-    
+
+    <!-- Query Log Section -->
     <div id="query-log">
-    <h3>Recent Queries</h3>
-    <ul id="query-list"></ul>
-    <button onclick="clearQueries('studentQueries')">Clear All Queries</button>
-</div>
+        <h3>Recent Queries</h3>
+        <ul id="query-list"></ul>
+        <button onclick="clearQueries('studentQueries')">Clear All Queries</button>
+    </div>
 
-<div id="graph-container">
-    <h3>Graphing Tool</h3>
-    <div id="graph"></div>
-    <input type="text" id="equation-input" placeholder="Enter equation (e.g., y=x^2)" />
-    <button onclick="plotGraph()">Plot Graph</button>
-</div>
+    <!-- Saved Equations Section -->
+    <div id="equation-log">
+        <h3>Saved Equations</h3>
+        <ul id="equation-list"></ul>
+        <button onclick="clearQueries('studentEquations')">Clear All Equations</button>
+    </div>
 
-<div id="equation-log">
-    <h3>Saved Equations</h3>
-    <ul id="equation-list"></ul>
-    <button onclick="clearQueries('studentEquations')">Clear All Equations</button>
-</div>
+    <!-- Math Problem Solver -->
+    <div id="math-solver">
+        <h3>Math Problem Solver</h3>
+        <input type="text" id="student-math-input" placeholder="Enter a math problem (e.g., 2x+3=7)" />
+        <button onclick="solveMathProblem('student')">Solve</button>
+        <div id="student-solution"></div>
+    </div>
 
-<div id="math-solver">
-    <h3>Math Problem Solver</h3>
-    <input type="text" id="student-math-input" placeholder="Enter a math problem (e.g., 2x+3=7)" />
-    <button onclick="solveMathProblem('student')">Solve</button>
-    <div id="student-solution"></div>
-</div>
+    <!-- Graph Annotations -->
+    <div id="graph-annotations">
+        <h3>Graph Annotations</h3>
+        <input type="text" id="annotation-input" placeholder="Enter annotation text" />
+        <button onclick="addAnnotation('student')">Add Annotation</button>
+    </div>
 
-<div id="graph-annotations">
-    <h3>Graph Annotations</h3>
-    <input type="text" id="annotation-input" placeholder="Enter annotation text" />
-    <button onclick="addAnnotation('student')">Add Annotation</button>
-</div>
-
+    <!-- Logout Link -->
     <a href="index.html">Logout</a>
-    <script src="https://www.desmos.com/api/v1.9/calculator.js"></script>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
