@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Learning Platform</title>
+    <title>Professional Math Solver</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Math Learning Platform</h1>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="student.html">Student</a>
+            <a href="teacher.html">Teacher</a>
+            <a href="help.html">Help</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
 
-    <div id="auth-section">
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showSignUp()">Sign Up</button>
+    <div class="container">
+        <h1>Welcome to Professional Math Solver</h1>
+        <p>Use this platform to solve math problems, generate graphs, and learn efficiently!</p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Input math problems and receive step-by-step solutions.</li>
+            <li>Generate interactive graphs.</li>
+            <li>View recent queries and solutions.</li>
+        </ul>
+
+        <div>
+            <h3>Try it Now</h3>
+            <input type="text" id="math-problem" placeholder="Enter a math problem (e.g., x^2+2x+1=0)">
+            <button onclick="solveMathProblem('demo')">Solve</button>
+            <div id="solution-output"></div>
+        </div>
     </div>
 
-    <div id="login-form" class="hidden">
-        <h2>Login</h2>
-        <input type="text" id="login-username" placeholder="Username">
-        <input type="password" id="login-password" placeholder="Password">
-        <button onclick="login()">Submit</button>
-        <button onclick="hideForms()">Cancel</button>
-    </div>
-
-    <div id="signup-form" class="hidden">
-        <h2>Sign Up</h2>
-        <input type="text" id="signup-username" placeholder="Username">
-        <input type="password" id="signup-password" placeholder="Password">
-        <button onclick="signUp()">Submit</button>
-        <button onclick="hideForms()">Cancel</button>
-    </div>
-
+    <footer>
+        <p>&copy; 2024 Professional Math Solver. All Rights Reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
