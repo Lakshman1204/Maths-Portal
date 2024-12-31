@@ -27,15 +27,21 @@
     </section>
 
     <!-- Sign-Up/Sign-In Section -->
-    <section id="sign-section" class="container">
-        <h2>Sign In or Sign Up</h2>
-        <form action="login.html" method="post" class="form-box">
-            <input type="text" name="username" placeholder="Enter your username" required>
-            <input type="password" name="password" placeholder="Enter your password" required>
-            <button type="submit">Sign In</button>
-        </form>
-        <p>Don't have an account? <a href="signup.html">Sign Up Here</a></p>
-    </section>
+   <h2>Sign In</h2>
+<form id="signin-form">
+    <input type="email" id="signin-email" placeholder="Enter your email" required>
+    <input type="password" id="signin-password" placeholder="Enter your password" required>
+    <button type="button" id="signin-button">Sign In</button>
+</form>
+
+<p>Don't have an account? <a href="#" id="signup-link">Sign Up Here</a></p>
+
+<h2 id="signup-section" style="display:none;">Sign Up</h2>
+<form id="signup-form" style="display:none;">
+    <input type="email" id="signup-email" placeholder="Enter your email" required>
+    <input type="password" id="signup-password" placeholder="Enter your password" required>
+    <button type="button" id="signup-button">Sign Up</button>
+</form>
 
     <!-- Features Section -->
     <section class="container">
@@ -87,5 +93,64 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 </script>
+    <script>
+    // Toggle between Sign-In and Sign-Up forms
+    const signupLink = document.getElementById("signup-link");
+    const signinForm = document.getElementById("signin-form");
+    const signupForm = document.getElementById("signup-form");
+    const signupSection = document.getElementById("signup-section");
+
+    signupLink.addEventListener("click", () => {
+        signinForm.style.display = "none";
+        signupSection.style.display = "block";
+        signupForm.style.display = "block";
+    });
+
+    // Sign Up Function
+    document.getElementById("signup-button").addEventListener("click", () => {
+        const email = document.getElementById("signup-email").value;
+        const password = document.getElementById("signup-password").value;
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                alert("Sign-up successful!");
+                window.location.reload(); // Refresh the page
+            })
+            .catch((error) => {
+                alert("Error: " + error.message);
+            });
+    });
+
+    // Sign In Function
+    document.getElementById("signin-button").addEventListener("click", () => {
+        const email = document.getElementById("signin-email").value;
+        const password = document.getElementById("signin-password").value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                alert("Sign-in successful!");
+                window.location.href = "student.html"; // Redirect to student page
+            })
+            .catch((error) => {
+                alert("Error: " + error.message);
+            });
+    });
+</script>
+    <button id="google-signin-button">Sign in with Google</button>
+<script>
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+    document.getElementById("google-signin-button").addEventListener("click", () => {
+        auth.signInWithPopup(googleProvider)
+            .then((result) => {
+                alert("Google Sign-in successful!");
+                window.location.href = "student.html"; // Redirect to student page
+            })
+            .catch((error) => {
+                alert("Error: " + error.message);
+            });
+    });
+</script>
+
 </body>
 </html>
